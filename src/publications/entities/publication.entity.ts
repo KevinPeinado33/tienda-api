@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 
 import { Category } from './category.entity';
+import { User } from 'src/users/entities/user.entity';
 
 @Entity({ name: 'publications' })
 export class Publication {
@@ -32,6 +33,9 @@ export class Publication {
 
     @ManyToOne( () => Category )
     category:    Category;
+
+    @ManyToOne( () => User )
+    user: User;
 
     @CreateDateColumn({
         type: 'timestamptz',
